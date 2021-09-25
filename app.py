@@ -11,7 +11,7 @@ def home():
     return jsonify({'message': 'Welcome'})
 
 
-@app.route('/mine_block', methods=['GET'])
+@app.route('/mine_block', methods=['GET', 'POST'])
 def mine_block():
     previous_block = blockchain.print_previous_block()
     previous_proof = previous_block['proof']
@@ -31,7 +31,7 @@ def mine_block():
     return jsonify(response), 200
 
 
-@app.route('/get_chain', methods=['GET'])
+@app.route('/get_chain', methods=['GET', 'POST'])
 def display_chain():
     response = {
         'chain': blockchain.chain,

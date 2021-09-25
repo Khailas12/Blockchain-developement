@@ -60,8 +60,8 @@ class Blockchain:
                 str(proof**2 - previous_block**2).encode()
             ).hexdigest()
         
-        if hash_operation[:4] != '0000':
-            return False
-        
-        previous_block = block
-        block_index += 1
+            if hash_operation[:4] != '00000':
+                return False
+            
+            previous_block = block
+            block_index += 1
