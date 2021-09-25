@@ -37,7 +37,8 @@ class Blockchain:
                 str(new_proof**2 - previous_proof**2).encode()).hexdigest() 
             #  Functions associated : encode() : Ckeonverts the string into bytes to be acceptable by hash function.
             # hexdigest() : Returns the encoded data in hexadecimal format.
-            # What is SHA-256? The SHA (Secure Hash Algorithm) is one of a number of cryptographic hash functions. SHA256 algorithm generates an almost-unique, fixed size 256-bit (32-byte) hash. Hash is so called a one way function.
+            # SHA-256 -> The SHA (Secure Hash Algorithm) is one of a number of cryptographic hash functions. 
+            # SHA256 algorithm generates an almost-unique, fixed size 256-bit (32-byte) hash. Hash is so called a one way function.
             
     
     def hash(self, block):
