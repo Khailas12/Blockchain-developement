@@ -56,6 +56,7 @@ class Blockchain:
             
             previous_block = previous_block['proof']
             proof = block['proof']
+            
             hash_operation = hashlib.sha256(
                 str(proof**2 - previous_block**2).encode()
             ).hexdigest()
