@@ -1,5 +1,4 @@
 import datetime
-from flask import Flask, jsonify
 import json
 import hashlib  # The terms “secure hash” and “message digest” are interchangeable. Included the FIPS secure hash algo
 
@@ -32,15 +31,17 @@ class Blockchain:
     def proof_of_work(self, previous_proof):
         new_proof = 1
         check_proof = False
-        
+
         while check_proof is False:
             hash_operation = hashlib.sha256(
-                str(new_proof**2 - previous_proof**2).encode()).hexdigest()
+                str(new_proof**2 - previous_proof**2).encode()).hexdigest() 
+            #  Functions associated : encode() : Ckeonverts the string into bytes to be acceptable by hash function.
+            # hexdigest() : Returns the encoded data in hexadecimal format.
             # What is SHA-256? The SHA (Secure Hash Algorithm) is one of a number of cryptographic hash functions. SHA256 algorithm generates an almost-unique, fixed size 256-bit (32-byte) hash. Hash is so called a one way function.
             
     
     def hash(self, block):
-        encoded_block = json.dumps(block ,sort_keys=True).encode()
+        encoded_block = json.dumps(block, sort_keys=True).encode()
         return hashlib.sha256(encoded_block).hexdigest()
     
     def chain_valid(self, chain):
